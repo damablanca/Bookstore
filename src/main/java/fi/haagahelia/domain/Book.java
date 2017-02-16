@@ -1,5 +1,8 @@
 package fi.haagahelia.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Book {
 	
 	private String title;
