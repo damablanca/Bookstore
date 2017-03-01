@@ -1,9 +1,14 @@
 package fi.haagahelia.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Book {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	
 	private String title;
 	private String author;
@@ -58,7 +63,8 @@ public class Book {
 	public void setPrice(double price) {
 		this.price=price;
 	}
-
+	
+	@Override
 	public String toString() {
 		return "Title: " + title + "\nAuthor: " + author + "\nYear: " + year + "\nIsbn: " + isbn + "\nPrice: " + price;
 	}
