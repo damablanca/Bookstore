@@ -16,6 +16,10 @@ public class Book {
 	private String isbn;
 	private double price;
 	
+	public Book() {
+		
+	}
+	
 	public Book(String title, String author, int year, String isbn, double price) {
 		this.title=title;
 		this.author=author;
@@ -66,7 +70,7 @@ public class Book {
 	
 	@Override
 	public String toString() {
-		return "Title: " + title + "\nAuthor: " + author + "\nYear: " + year + "\nIsbn: " + isbn + "\nPrice: " + price;
+		return "\nTitle: " + title + "\nAuthor: " + author + "\nYear: " + year + "\nIsbn: " + isbn + "\nPrice: " + price;
 	}
 	
 }
