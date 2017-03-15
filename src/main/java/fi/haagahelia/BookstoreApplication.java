@@ -24,8 +24,9 @@ public class BookstoreApplication {
 		return (args) -> {
 			log.info("Save some test data");
 			
-			repository.save(new Book("Sinuhe", "Mika Waltari",1996,"WM3445",20.60));
-			repository.save(new Book("Olemisen sietamaton keveys", "Milan Kundera",1994,"KM35734",10));
+			repository.save(new Book("Sinuhe", "Mika Waltari",1945,"WM3445",20.60));
+			repository.save(new Book("Olemisen sietamaton keveys", "Milan Kundera",1985,"KM3573",10));
+			repository.save(new Book("Dorian Grayn Muotokuva", "Oscar Wilde",1890, "WO2899",15));
 			
 			log.info("Fetch book information");
 			for (Book book : repository.findAll()) {
