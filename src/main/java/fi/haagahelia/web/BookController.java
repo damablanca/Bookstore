@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fi.haagahelia.domain.Book;
 import fi.haagahelia.domain.BookRepository;
-
+import fi.haagahelia.domain.CategoryRepository;
 
 import org.springframework.ui.Model;
 
@@ -17,6 +17,9 @@ import org.springframework.ui.Model;
 public class BookController {
 	@Autowired
 	private BookRepository repository;
+	
+	@Autowired 
+	private CategoryRepository crepository;
 	
 	@RequestMapping(value="/booklist", method=RequestMethod.GET)
 		public String showBooklist(Model model) {
@@ -27,6 +30,7 @@ public class BookController {
 	@RequestMapping(value="/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
+		model.addAttribute("categories", crepository.findAll());
 		return "addbook";
 	}
 	

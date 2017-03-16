@@ -18,6 +18,10 @@
     	<input type="text" id="isbn" th:field="*{isbn}" />
     	<label for="price">Price</label>
     	<input type="text" id="price" th:field="*{price}" />
+    	<label for="category">Category</label>
+			<select id="category" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>	
         <input type="submit" value="Add book"></input>
     </form>
     </div>
