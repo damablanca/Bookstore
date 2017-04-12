@@ -27,22 +27,26 @@ public class BookController {
 	@Autowired 
 	private CategoryRepository crepository;
 	
+	//RESTful service, all books
 	@RequestMapping(value="/books", method=RequestMethod.GET)
 	public @ResponseBody List<Book> bookListRest() {
 		return (List<Book>) repository.findAll();
 	}
 	
+	//RESTful service, search book with id
 	@RequestMapping(value="/book/{id}", method=RequestMethod.GET)
 	public @ResponseBody Book findBookRest(@PathVariable("id") Long bookId) {
 		return repository.findOne(bookId);
 	}
 	
+	//show list of books
 	@RequestMapping(value="/booklist", method=RequestMethod.GET)
 		public String showBooklist(Model model) {
 			model.addAttribute("book", repository.findAll());
 			return "booklist";
 	} 
 	
+	//add book
 	@RequestMapping(value="/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
@@ -50,14 +54,23 @@ public class BookController {
 		return "addbook";
 	}
 	
+	//save book
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public String saveBook(Book book) {
 		repository.save(book);
 		return "redirect:booklist";
 	}	
+	
+	//delete book
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
 	public String deleteBook(@PathVariable("id")Long id, Model model) {
 			repository.delete(id);
 			return "redirect:../booklist";
+	}
+	
+	//user access
+	@RequestMapping(value="/login")
+	public String userLogin() {
+		return "login";
 	}
 }
