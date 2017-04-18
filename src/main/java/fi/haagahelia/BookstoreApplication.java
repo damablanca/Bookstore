@@ -32,6 +32,7 @@ public class BookstoreApplication {
 			crepository.save(new Category("Historical novel"));
 			crepository.save(new Category("Philosofical fiction"));
 			crepository.save(new Category("Horror novel"));
+			crepository.save(new Category("Drama"));
 			
 			//creating book information
 			repository.save(new Book("Sinuhe the Egyptian", "Mika Waltari",1945,"WM3445",20.60, crepository.findByName("Historical novel").get(0)));
